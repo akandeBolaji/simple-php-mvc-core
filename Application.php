@@ -39,6 +39,18 @@ class Application
         }
     }
 
+    public function run()
+    {
+        $this->triggerEvent(self::EVENT_BEFORE_REQUEST);
+        try {
+            echo $this->router->resolve();
+        } catch (\Exception $e) {
+            echo $this->router->renderView('_error', [
+                'exception' => $e,
+            ]);
+        }
+    }
+
     public static function isGuest()
     {
         return !self::$app->user;
