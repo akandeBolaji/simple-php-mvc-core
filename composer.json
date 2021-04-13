@@ -1,0 +1,16 @@
+{
+    "name": "akandebolaji/simple-php-mvc-core",
+    "description": "simple php mvc core package",
+    "authors": [
+        {
+            "name": "akandeBolaji",
+            "email": "akandebolajidanielofficial@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "akandebolaji\\phpmvc\\": "."
+        }
+    }
+}
