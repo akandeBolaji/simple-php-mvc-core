@@ -10,7 +10,7 @@ class Controller
     public string $action = '';
 
     /**
-     * @var \thecodeholic\phpmvc\BaseMiddleware[]
+     * @var \akandebolaji\phpmvc\BaseMiddleware[]
      */
     protected array $middlewares = [];
 
@@ -30,7 +30,7 @@ class Controller
     }
 
     /**
-     * @return \thecodeholic\phpmvc\middlewares\BaseMiddleware[]
+     * @return \akandebolaji\phpmvc\middlewares\BaseMiddleware[]
      */
     public function getMiddlewares(): array
     {
