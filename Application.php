@@ -24,12 +24,6 @@ class Application
         self::$app = $this;
         $this->request = new Request();
         $this->response = new Response();
-        $this->router = new Router($this->request, $this->response);
-
-        $userId = Application::$app->session->get('user');
-        if ($userId) {
-            $key = $this->userClass::primaryKey();
-            $this->user = $this->userClass::findOne([$key => $userId]);
-        }
+        $this->router = new Router($this->request, $this->response)
     }
 }
