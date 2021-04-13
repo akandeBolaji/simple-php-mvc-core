@@ -1,6 +1,6 @@
 <?php
 
-namespace bolajiakande\phpmvc;
+namespace akandebolaji\phpmvc;
 
 /**
  * Class Application
