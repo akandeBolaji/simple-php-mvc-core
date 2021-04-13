@@ -39,8 +39,11 @@ class Request
             }
         }
         if ($this->isPost()) {
-            foreach ($_POST as $key => $value) {
-                $data[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+            $data = json_decode(file_get_contents('php://input'), true);
+            if (!$data) {
+                foreach ($_POST as $key => $value) {
+                    $data[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+                }
             }
         }
         return $data;
