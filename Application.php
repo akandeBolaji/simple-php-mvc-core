@@ -31,12 +31,6 @@ class Application
         $this->db = new Database($config['db']);
         $this->session = new Session();
         $this->view = new View();
-
-        $userId = Application::$app->session->get('user');
-        if ($userId) {
-            $key = $this->userClass::primaryKey();
-            $this->user = $this->userClass::findOne([$key => $userId]);
-        }
     }
 
     public function run()
@@ -48,26 +42,5 @@ class Application
                 'exception' => $e,
             ]);
         }
-    }
-
-    public static function isGuest()
-    {
-        return !self::$app->user;
-    }
-
-    public function login(UserModel $user)
-    {
-        $this->user = $user;
-        $primaryKey = $user->primaryKey();
-        $value = $user->{$primaryKey};
-        Application::$app->session->set('user', $value);
-
-        return true;
-    }
-
-    public function logout()
-    {
-        $this->user = null;
-        self::$app->session->remove('user');
     }
 }
